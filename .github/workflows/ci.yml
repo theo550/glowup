@@ -27,13 +27,15 @@ jobs:
           distribution: 'temurin'
           cache: 'maven'
 
-      # 1. SAST - SonarCloud
+      - name: Build with Maven
+        run: mvn -B clean verify
+
       - name: SonarCloud Scan
-        working-directory: glowcommerce-backend
-        run: mvn verify sonar:sonar
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: mvn -B sonar:sonar \
+          -Dsonar.projectKey=theo550_glowup \
+          -Dsonar.organization=theo550 \
+          -Dsonar.host.url=https://sonarcloud.io \
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
 
       # 2. SCA - OWASP Dependency Check
       - name: Dependency Check
