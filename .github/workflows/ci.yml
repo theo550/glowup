@@ -28,9 +28,11 @@ jobs:
           cache: 'maven'
 
       - name: Build with Maven
+        working-directory: glowcommerce-backend
         run: mvn -B clean verify
 
       - name: SonarCloud Scan
+        working-directory: glowcommerce-backend
         run: mvn -B sonar:sonar \
           -Dsonar.projectKey=theo550_glowup \
           -Dsonar.organization=theo550 \
