@@ -14,7 +14,6 @@ env:
 jobs:
   security-scan:
     runs-on: ubuntu-latest
-    working-directory: glowcommerce-backend
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
