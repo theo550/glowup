@@ -18,18 +18,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+        fetch-depth: 0
 
-      - name: Set up JDK 21
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
           java-version: '21'
           distribution: 'temurin'
           cache: 'maven'
 
-      - name: Sonar cloud
-        working-directory: glowcommerce-backend
+      # 1. SAST - SonarCloud
+      - name: SonarCloud Scan
         run: mvn verify sonar:sonar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      # 2. SCA - OWASP Dependency Check
+      - name: Dependency Check
+        run: mvn org.owasp:dependency-check-maven:check
