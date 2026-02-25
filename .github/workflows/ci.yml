@@ -29,6 +29,7 @@ jobs:
 
       # 1. SAST - SonarCloud
       - name: SonarCloud Scan
+        working-directory: glowcommerce-backend
         run: mvn verify sonar:sonar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
