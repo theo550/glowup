@@ -103,7 +103,7 @@ services:
     container_name: glowcommerce-portainer
     restart: unless-stopped
     ports:
-      - "9000:9000"
+      - "9001:9001"
       - "9443:9443"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
