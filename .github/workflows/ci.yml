@@ -33,11 +33,12 @@ jobs:
 
       - name: SonarCloud Scan
         working-directory: glowcommerce-backend
-        run: mvn -B sonar:sonar \
-          -Dsonar.projectKey=theo550_glowup \
-          -Dsonar.organization=theo550 \
-          -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        run: |
+          mvn -B sonar:sonar \
+            -Dsonar.projectKey=theo550_glowup \
+            -Dsonar.organization=theo550 \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
 
       # 2. SCA - OWASP Dependency Check
       - name: Dependency Check
