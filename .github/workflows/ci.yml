@@ -28,6 +28,7 @@ jobs:
           cache: 'maven'
 
       - name: Sonar cloud
+        working-directory: backend
         run: mvn verify sonar:sonar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
