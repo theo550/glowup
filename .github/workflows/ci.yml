@@ -30,4 +30,4 @@ jobs:
       - name: Sonar cloud
         uses: SonarSource/sonarqube-scan-action@v6
         env:
-          SONAR_TOKEN: {{ secrets.SONAR_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
