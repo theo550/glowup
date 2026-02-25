@@ -1,8 +1,10 @@
 name: CI
 
 on:
-  push: [master, develop]
-  pull_request: [master]
+  push:
+    branches: [master, develop]
+  pull_request:
+    branches : [master]
 
 env:
   JAVA_VERSION: '21'
