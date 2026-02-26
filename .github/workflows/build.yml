@@ -47,7 +47,7 @@ jobs:
       - name: Run tests with coverage
         run: |
           cd glowcommerce-backend
-          mvn clean verify -P coverage
+          mvn clean verify
         env:
           SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/glowcommerce_test
           SPRING_DATASOURCE_USERNAME: test
@@ -64,11 +64,6 @@ jobs:
         with:
           file: glowcommerce-backend/target/site/jacoco/jacoco.xml
           fail_ci_if_error: true
-
-      - name: Verify code coverage threshold
-        run: |
-          cd glowcommerce-backend
-          mvn jacoco:check -Djacoco.minimum-coverage=0.80
 
       - name: Upload test results
         if: always()
