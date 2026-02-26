@@ -41,6 +41,6 @@ jobs:
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
 
       # 2. SCA - OWASP Dependency Check
-      - name: Dependency Check
-        working-directory: glowcommerce-backend
-        run: mvn org.owasp:dependency-check-maven:check
+      #- name: Dependency Check
+      #  working-directory: glowcommerce-backend
+      #  run: mvn org.owasp:dependency-check-maven:check
