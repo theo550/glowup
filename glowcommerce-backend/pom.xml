@@ -128,6 +128,13 @@
             <version>1.19.3</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.jacoco</groupId>
+            <artifactId>org.jacoco.core</artifactId>
+            <version>0.8.7</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
